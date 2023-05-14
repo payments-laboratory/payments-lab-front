@@ -1,9 +1,11 @@
 import React from "react";
 
+import AmountBox from "./AmountBox";
+
 const PaymentAmountPage = () => {
     return (
         <div>
-            <h1>PaymentPage</h1>
+            <AmountBox />
         </div>
     );
 };
