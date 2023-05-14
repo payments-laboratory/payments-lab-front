@@ -1,1 +1,3 @@
-// API CLIENT
+const apiClient = () => {};
+
+export default apiClient;

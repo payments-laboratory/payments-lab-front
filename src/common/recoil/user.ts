@@ -1,1 +1,3 @@
-// RECOIL USER
+const user = () => {};
+
+export default user;

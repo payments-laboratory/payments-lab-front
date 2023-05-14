@@ -1,7 +1,11 @@
 import React from "react";
 
 const PaymentProcessingPage = () => {
-    return <div>PaymentProcessingPage</div>;
+    return (
+        <div>
+            <h1>PaymentProcessingPage</h1>
+        </div>
+    );
 };
 
 export default PaymentProcessingPage;

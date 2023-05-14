@@ -1,1 +1,3 @@
-// RECOIL PAYMENT
+const payment = () => {};
+
+export default payment;

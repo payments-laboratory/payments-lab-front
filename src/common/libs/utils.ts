@@ -1,1 +1,3 @@
-// UTILS
+const testUtils = () => {};
+
+export default testUtils;

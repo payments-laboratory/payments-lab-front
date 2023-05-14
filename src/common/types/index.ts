@@ -1,1 +1,5 @@
-// COMMON TYPES
+type Sample = {
+    text: string;
+};
+
+export type { Sample };

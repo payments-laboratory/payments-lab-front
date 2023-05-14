@@ -1,1 +1,3 @@
-// TEST HOOK
+const useTest = () => {};
+
+export default useTest;

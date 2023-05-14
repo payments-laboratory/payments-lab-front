@@ -79,7 +79,7 @@ module.exports = {
         "import/order": [
             "error",
             {
-                groups: ["builtin", "external", "internal", ["parent", "sibling"], "index", "unknown", "type"],
+                groups: ["builtin", "external", "index", "internal", ["parent", "sibling"], "unknown", "type"],
                 pathGroups: [
                     {
                         pattern: "{react,react-dom,react-router-dom}",
@@ -87,7 +87,12 @@ module.exports = {
                         position: "after",
                     },
                     {
-                        pattern: "@components/**",
+                        pattern: "styled-components",
+                        group: "external",
+                        position: "before",
+                    },
+                    {
+                        pattern: "{@components/**,@hooks/**}",
                         group: "internal",
                         position: "before",
                     },
@@ -95,6 +100,11 @@ module.exports = {
                         pattern: "@pages/**",
                         group: "internal",
                         position: "after",
+                    },
+                    {
+                        pattern: "{../**,./*,..,.,./**/*,../../**,../../../**}",
+                        group: "index",
+                        position: "before",
                     },
                 ],
                 "newlines-between": "always", // 그룹 간에 최소 한줄이상의 줄바꿈이 강제화, 그룹안에서의 줄바꿈은 금지
