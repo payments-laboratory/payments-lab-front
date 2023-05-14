@@ -43,7 +43,7 @@ module.exports = {
         "react/no-unescaped-entities": "off",
 
         // 리액트 훅스 규칙
-        "react-hooks/exhaustive-deps": "warn", // hook 에서 의존성 배열 허용 여부
+        "react-hooks/exhaustive-deps": ["warn", { additionalHooks: "useRecoilCallback" }], // hook 에서 의존성 배열 허용 여부, additionalHooks - recoil
 
         // jsx 규칙 (웹 접근성)
         "jsx-a11y/label-has-for": ["error", { required: { every: ["id"] } }],
@@ -82,17 +82,22 @@ module.exports = {
                 groups: ["builtin", "external", "index", "internal", ["parent", "sibling"], "unknown", "type"],
                 pathGroups: [
                     {
-                        pattern: "{react,react-dom,react-router-dom}",
+                        pattern: "{react,react-dom}",
                         group: "builtin",
                         position: "after",
                     },
                     {
-                        pattern: "styled-components",
-                        group: "external",
+                        pattern: "{@components/**,@hooks/**}",
+                        group: "internal",
                         position: "before",
                     },
                     {
-                        pattern: "{@components/**,@hooks/**}",
+                        pattern: "{@libs/**,@recoil/**,@router/**}",
+                        group: "internal",
+                        position: "before",
+                    },
+                    {
+                        pattern: "{@styles/**,@types/**}",
                         group: "internal",
                         position: "before",
                     },
