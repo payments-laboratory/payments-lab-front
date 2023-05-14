@@ -86,6 +86,16 @@ module.exports = {
                         group: "builtin",
                         position: "after",
                     },
+                    {
+                        pattern: "@components/**",
+                        group: "internal",
+                        position: "before",
+                    },
+                    {
+                        pattern: "@pages/**",
+                        group: "internal",
+                        position: "after",
+                    },
                 ],
                 "newlines-between": "always", // 그룹 간에 최소 한줄이상의 줄바꿈이 강제화, 그룹안에서의 줄바꿈은 금지
                 pathGroupsExcludedImportTypes: ["builtin"], // pathGroups 에서 설정에 의해 처리되지 않는 import type 을 정의

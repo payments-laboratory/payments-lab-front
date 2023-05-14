@@ -1,14 +1,16 @@
-{   
-    "compilerOptions": {
-    "baseUrl": "src",
+{
+  "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "@/*": ["*"],
-      "@components/*": ["common/components/*"],
-      "@hooks/*": ["common/hooks/*"],
-      "@pages/*": ["pages/*"],
-      "@recoil/*": ["common/recoil/*"],
-      "@router/*": ["common/router/*"],
-      "@styles/*": ["common/styles/*"],  
+      "@components/*": ["src/common/components/*"],
+      "@hooks/*": ["src/common/hooks/*"],
+      "@libs/*": ["src/common/libs/*"],
+      "@recoil/*": ["src/common/recoil/*"],
+      "@router/*": ["src/common/router/*"],
+      "@styles/*": ["src/common/styles/*"],
+      "@pages/*": ["src/pages/*"],
+      "@images/*": ["public/images/*"],
     }
   }
 }
