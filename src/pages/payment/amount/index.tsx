@@ -1,9 +1,13 @@
-import React from "react";
+import AmountBox from "./AmountBox";
+import Button from "./Button";
+import CountButton from "./CountButton";
 
 const PaymentAmountPage = () => {
     return (
         <div>
-            <h1>PaymentAmountPage</h1>
+            <CountButton />
+            <AmountBox />
+            <Button />
         </div>
     );
 };
