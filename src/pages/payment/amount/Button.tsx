@@ -1,11 +1,28 @@
+import { useState } from "react";
+
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const Button = () => {
-    const ButtonList = ["충전하기", "토스페이", "네이버페이"];
+    const [buttonState, setButtonState] = useState();
+    const ButtonList = [
+        { title: "충전하기", page: "/processing" },
+        { title: "토스페이", page: "/" },
+        { title: "네이버페이", page: "/" },
+    ];
+
+    const buttonHandler = (e: any) => {
+        setButtonState(e.target.value);
+    };
+
     return (
         <ButtonContainer>
-            {ButtonList.map((itm, idx) => (
-                <ButtonDiv value={itm}>{itm}</ButtonDiv>
+            {ButtonList.map(itm => (
+                <Link to={`${itm.page}`}>
+                    <ButtonDiv value={itm.title} onClick={buttonHandler}>
+                        {itm.title}
+                    </ButtonDiv>
+                </Link>
             ))}
         </ButtonContainer>
     );
