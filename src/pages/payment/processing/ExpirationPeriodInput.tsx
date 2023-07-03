@@ -9,11 +9,19 @@ const ExpirationPeriodInput = ({ title }: any) => {
     const expirationPeriodFirstInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
         setExpirationPeriod((prev: any) => ({ ...prev, firstState: value }));
+        // if (expirationPeriod.firstState.length > 2) {
+        //     alert("2자리만 입력해주세요.");
+        //     return false;
+        // }
     };
 
     const expirationPeriodSecondInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
         setExpirationPeriod((prev: any) => ({ ...prev, secondState: value }));
+        // if (expirationPeriod.secondState.length > 2) {
+        //     alert("2자리만 입력해주세요.");
+        //     return false;
+        // }
     };
 
     return (

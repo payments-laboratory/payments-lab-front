@@ -7,3 +7,11 @@ export const expirationPeriodState = atom({
         secondState: "",
     },
 });
+
+export const cardPasswordState = atom({
+    key: "cardPasswordState",
+    default: {
+        firstState: "",
+        secondState: "",
+    },
+});

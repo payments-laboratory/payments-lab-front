@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
+import axios from "axios";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
@@ -11,25 +12,59 @@ import CountButton from "../amount/CountButton";
 
 import Layout from "@components/global/Layout";
 
-import { expirationPeriodState } from "@recoil/payment";
+import { expirationPeriodState, cardPasswordState } from "@recoil/payment";
 
 const PaymentProcessingPage = () => {
     const [expirationPeriod, setExpirationPeriod] = useRecoilState(expirationPeriodState);
+    const [cardPassword, setCardPassword] = useRecoilState(cardPasswordState);
+    const cardPasswordMerge = `${cardPassword.firstState}${cardPassword.secondState}`;
 
     const [userInformation, setUserInformation] = useState({
         amount: "",
         cardNumber: "",
         cardExpirationYear: expirationPeriod.firstState,
         cardExpirationMonth: expirationPeriod.secondState,
-        cardPassword: "",
+        cardPassword: cardPasswordMerge,
         customerIdentityNumber: "",
         phoneNumber: "",
     });
+
+    useEffect(() => {
+        setUserInformation({
+            ...userInformation,
+            cardExpirationYear: expirationPeriod.firstState,
+            cardExpirationMonth: expirationPeriod.secondState,
+            cardPassword: cardPasswordMerge,
+        });
+    }, [expirationPeriod.firstState, expirationPeriod.secondState, cardPasswordMerge]);
 
     const cardNumberInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
         setUserInformation((prev: any) => ({ ...prev, cardNumber: value }));
     };
+
+    const phoneNumberInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { value } = e.currentTarget;
+        setUserInformation((prev: any) => ({ ...prev, phoneNumber: value }));
+    };
+
+    const onClickButton = async () => {
+        const access_token = "";
+        try {
+            const res = await axios({
+                method: "post",
+                url: "/api/v1/toss-payments/key-in",
+                headers: {
+                    Authorization: `Bearer ${access_token}`,
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+            });
+        } catch (e: any) {
+            console.log("err");
+        }
+    };
+
+    console.log("userInformation", userInformation);
 
     return (
         <Layout>
@@ -45,8 +80,8 @@ const PaymentProcessingPage = () => {
             <ExpirationPeriodInput title="유효기간(월/년)" />
             <PasswordInput title="비밀번호 앞 두자리" />
             <Input title="생년월일 6자리" />
-            <Input title="휴대폰 번호 (-제외)" />
-            <ButtonDiv>결제하기</ButtonDiv>
+            <Input title="휴대폰 번호 (-제외)" value={userInformation.phoneNumber} onChange={phoneNumberInputHandler} />
+            <ButtonDiv onClick={onClickButton}>결제하기</ButtonDiv>
         </Layout>
     );
 };
