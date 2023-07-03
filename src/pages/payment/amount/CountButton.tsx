@@ -1,11 +1,20 @@
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 
 const CountButton = () => {
+    const location = useLocation();
+    console.log("location", location.pathname);
+
     const CountButtonlist = ["1", "2", "3"];
+
+    // const activeColor = () => {
+    // }
     return (
         <CountButtonContainer>
-            {CountButtonlist.map(itm => (
-                <CountButtonDiv>{itm}</CountButtonDiv>
+            {CountButtonlist.map((itm, idx) => (
+                <CountButtonDiv value={idx} color={idx}>
+                    {itm}
+                </CountButtonDiv>
             ))}
         </CountButtonContainer>
     );
@@ -19,7 +28,7 @@ const CountButtonContainer = styled.div`
     gap: 10px;
 `;
 
-const CountButtonDiv = styled.div`
+const CountButtonDiv = styled.div<any>`
     border: 1px solid black;
     border-radius: 50%;
     width: 30px;
@@ -27,6 +36,7 @@ const CountButtonDiv = styled.div`
     justify-content: center;
     align-items: center;
     display: flex;
+    background-color: ${props => props.color};
 `;
 
 export default CountButton;
