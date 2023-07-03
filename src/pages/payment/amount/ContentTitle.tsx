@@ -1,4 +1,5 @@
 import React from "react";
+
 import styled from "styled-components";
 
 const ContentTitle = ({ title }: any) => {
@@ -7,6 +8,6 @@ const ContentTitle = ({ title }: any) => {
 
 const ContnetTitleDiv = styled.div`
     font-size: ${({ theme }) => theme.fontSize.large};
-    margin: 35px 0px;
+    margin: 35px 0px 80px 0px;
 `;
 export default ContentTitle;
