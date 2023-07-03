@@ -1,7 +1,7 @@
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
-import { expirationPeriodState } from "@/src/common/recoil/payment";
+import { expirationPeriodState } from "@recoil/payment";
 
 const ExpirationPeriodInput = ({ title }: any) => {
     const [expirationPeriod, setExpirationPeriod] = useRecoilState(expirationPeriodState);
@@ -11,7 +11,7 @@ const ExpirationPeriodInput = ({ title }: any) => {
         setExpirationPeriod((prev: any) => ({ ...prev, firstState: value }));
     };
 
-    const expirationPeriodSecondInputHandler = e => {
+    const expirationPeriodSecondInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
         setExpirationPeriod((prev: any) => ({ ...prev, secondState: value }));
     };

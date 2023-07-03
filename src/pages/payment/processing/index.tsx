@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 
+import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
 import ExpirationPeriodInput from "./ExpirationPeriodInput";
@@ -10,12 +11,18 @@ import CountButton from "../amount/CountButton";
 
 import Layout from "@components/global/Layout";
 
+import { expirationPeriodState } from "@recoil/payment";
+
 const PaymentProcessingPage = () => {
+    const [expirationPeriod, setExpirationPeriod] = useRecoilState(expirationPeriodState);
+
     const [userInformation, setUserInformation] = useState({
+        amount: "",
         cardNumber: "",
-        expirationPeriod: "",
-        password: "",
-        birth: "",
+        cardExpirationYear: expirationPeriod.firstState,
+        cardExpirationMonth: expirationPeriod.secondState,
+        cardPassword: "",
+        customerIdentityNumber: "",
         phoneNumber: "",
     });
 
