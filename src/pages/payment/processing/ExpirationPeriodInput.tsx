@@ -42,8 +42,8 @@ const ExpirationPeriodInputContainer = styled.div`
 
 const Label = styled.div``;
 const InputDiv = styled.div`
-    width: 300px;
-    height: 20px;
+    width: 600px;
+    height: 50px;
     display: flex;
     gap: 2px;
 `;

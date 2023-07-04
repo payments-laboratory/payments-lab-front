@@ -5,6 +5,7 @@ import styled from "styled-components";
 
 const Button = () => {
     const [buttonState, setButtonState] = useState();
+
     const ButtonList = [
         { title: "충전하기", page: "/processing" },
         { title: "토스페이", page: "/" },
@@ -32,9 +33,9 @@ const ButtonContainer = styled.div`
     margin-top: 80px;
 `;
 const ButtonDiv = styled.div<any>`
-    width: 400px;
+    width: 600px;
     height: 70px;
-    background-color: #fff;
+    background-color: ${props => props.color};
     color: black;
     display: flex;
     flex-direction: column;
@@ -43,6 +44,9 @@ const ButtonDiv = styled.div<any>`
     margin-bottom: 10px;
     cursor: pointer;
     border: 1px solid black;
+    :hover {
+        background-color: #66c8ff;
+    }
 `;
 
 export default Button;

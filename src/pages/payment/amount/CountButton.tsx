@@ -3,18 +3,14 @@ import styled from "styled-components";
 
 const CountButton = () => {
     const location = useLocation();
-    console.log("location", location.pathname);
+    const currentPage = location.pathname;
 
     const CountButtonlist = ["1", "2", "3"];
 
-    // const activeColor = () => {
-    // }
     return (
         <CountButtonContainer>
             {CountButtonlist.map((itm, idx) => (
-                <CountButtonDiv value={idx} color={idx}>
-                    {itm}
-                </CountButtonDiv>
+                <CountButtonDiv value={idx}>{itm}</CountButtonDiv>
             ))}
         </CountButtonContainer>
     );

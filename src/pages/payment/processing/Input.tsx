@@ -15,8 +15,8 @@ const InputContainer = styled.div`
 `;
 const Label = styled.div``;
 const InputDiv = styled.input`
-    width: 300px;
-    height: 20px;
+    width: 600px;
+    height: 50px;
     border: 1px solid black;
 `;
 

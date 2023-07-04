@@ -76,11 +76,13 @@ const PaymentProcessingPage = () => {
                     <AmountBox />
                 </TotalAmountDiv>
             </TotalAmount>
-            <Input title="카드번호" value={userInformation.cardNumber} onChange={cardNumberInputHandler} />
-            <ExpirationPeriodInput title="유효기간(월/년)" />
-            <PasswordInput title="비밀번호 앞 두자리" />
-            <Input title="생년월일 6자리" />
-            <Input title="휴대폰 번호 (-제외)" value={userInformation.phoneNumber} onChange={phoneNumberInputHandler} />
+            <InputDiv>
+                <Input title="카드번호" value={userInformation.cardNumber} onChange={cardNumberInputHandler} />
+                <ExpirationPeriodInput title="유효기간(월/년)" />
+                <PasswordInput title="비밀번호 앞 두자리" />
+                <Input title="생년월일 6자리" />
+                <Input title="휴대폰 번호 (-제외)" value={userInformation.phoneNumber} onChange={phoneNumberInputHandler} />
+            </InputDiv>
             <ButtonDiv onClick={onClickButton}>결제하기</ButtonDiv>
         </Layout>
     );
@@ -96,14 +98,22 @@ const AmountBox = styled.div`
     border-bottom: 1px solid black;
 `;
 
+const InputDiv = styled.div`
+    width: 600px;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`;
+
 const TotalAmountDiv = styled.div`
     display: flex;
     font-size: ${({ theme }) => theme.fontSize.large};
 `;
 
 const ButtonDiv = styled.div`
-    width: 300px;
-    height: 20px;
+    width: 600px;
+    height: 50px;
     background-color: black;
     color: #fff;
     display: flex;
