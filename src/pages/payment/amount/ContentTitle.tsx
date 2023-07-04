@@ -8,6 +8,5 @@ const ContentTitle = ({ title }: any) => {
 
 const ContnetTitleDiv = styled.div`
     font-size: ${({ theme }) => theme.fontSize.large};
-    margin: 35px 0px 80px 0px;
 `;
 export default ContentTitle;

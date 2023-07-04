@@ -72,8 +72,8 @@ const PaymentProcessingPage = () => {
             <TotalAmount>
                 <ContentTitle title="총 결제할 금액" />
                 <TotalAmountDiv>
-                    <span>$</span>
-                    <AmountBox />
+                    <span>₩</span>
+                    <AmountBox>30,000원</AmountBox>
                 </TotalAmountDiv>
             </TotalAmount>
             <InputDiv>
@@ -91,24 +91,33 @@ const PaymentProcessingPage = () => {
 const TotalAmount = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: beige; */
+    width: 600px;
+    height: 100px;
 `;
 
 const AmountBox = styled.div`
-    width: 300px;
+    width: 400px;
     border-bottom: 1px solid black;
 `;
 
 const InputDiv = styled.div`
     width: 600px;
-    height: 450px;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    margin: 30px 0px;
 `;
 
 const TotalAmountDiv = styled.div`
     display: flex;
     font-size: ${({ theme }) => theme.fontSize.large};
+    margin-top: 20px;
+    span {
+        margin-right: 10px;
+    }
 `;
 
 const ButtonDiv = styled.div`
