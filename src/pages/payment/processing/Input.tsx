@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 const Input = (props: any) => {
-    const { title, onChange } = props;
+    const { title, onChange, type } = props;
     return (
         <InputContainer>
             <Label>{title}</Label>
-            <InputDiv onChange={onChange} />
+            <InputDiv onChange={onChange} type={type} />
         </InputContainer>
     );
 };

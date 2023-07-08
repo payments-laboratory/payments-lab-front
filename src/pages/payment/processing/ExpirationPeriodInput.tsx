@@ -9,27 +9,37 @@ const ExpirationPeriodInput = ({ title }: any) => {
     const expirationPeriodFirstInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
         setExpirationPeriod((prev: any) => ({ ...prev, firstState: value }));
-        // if (expirationPeriod.firstState.length > 2) {
-        //     alert("2자리만 입력해주세요.");
-        //     return false;
-        // }
     };
 
     const expirationPeriodSecondInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
         setExpirationPeriod((prev: any) => ({ ...prev, secondState: value }));
-        // if (expirationPeriod.secondState.length > 2) {
-        //     alert("2자리만 입력해주세요.");
-        //     return false;
-        // }
     };
 
     return (
         <ExpirationPeriodInputContainer>
             <Label>{title}</Label>
             <InputDiv>
-                <Input onChange={expirationPeriodFirstInputHandler} value={expirationPeriod.firstState} />
-                <Input onChange={expirationPeriodSecondInputHandler} value={expirationPeriod.secondState} />
+                <Input
+                    onChange={expirationPeriodFirstInputHandler}
+                    value={expirationPeriod.firstState}
+                    type="number"
+                    onInput={(e: any) => {
+                        if (e.target.value.length > 2) {
+                            alert("2자리까지 입력 할 수 있습니다.");
+                        }
+                    }}
+                />
+                <Input
+                    onChange={expirationPeriodSecondInputHandler}
+                    value={expirationPeriod.secondState}
+                    type="number"
+                    onInput={(e: any) => {
+                        if (e.target.value.length > 2) {
+                            alert("2자리까지 입력 할 수 있습니다.");
+                        }
+                    }}
+                />
             </InputDiv>
         </ExpirationPeriodInputContainer>
     );

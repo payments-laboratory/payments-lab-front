@@ -8,20 +8,38 @@ const PasswordInput = ({ title }: any) => {
 
     const passwordFirstInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
-        setCardPassword(prev => ({ ...prev, firstState: value }));
+        setCardPassword(prev => ({ ...prev, firstState: value.slice(0, 1) }));
     };
 
     const passwordSecondInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
-        setCardPassword(prev => ({ ...prev, secondState: value }));
+        setCardPassword(prev => ({ ...prev, secondState: value.slice(0, 1) }));
     };
 
     return (
         <PasswordInputContainer>
             <Label>{title}</Label>
             <InputDiv>
-                <Input onChange={passwordFirstInputHandler} value={cardPassword.firstState} />
-                <Input onChange={passwordSecondInputHandler} value={cardPassword.secondState} />
+                <Input
+                    onChange={passwordFirstInputHandler}
+                    value={cardPassword.firstState}
+                    type="number"
+                    onInput={(e: any) => {
+                        if (e.target.value.length > 1) {
+                            alert("한 자리까지 입력 할 수 있습니다.");
+                        }
+                    }}
+                />
+                <Input
+                    onChange={passwordSecondInputHandler}
+                    value={cardPassword.secondState}
+                    type="number"
+                    onInput={(e: any) => {
+                        if (e.target.value.length > 1) {
+                            alert("한 자리까지 입력 할 수 있습니다.");
+                        }
+                    }}
+                />
                 <Empty />
                 <Empty />
             </InputDiv>

@@ -22,7 +22,7 @@ const PaymentProcessingPage = () => {
 
     const [userInformation, setUserInformation] = useState({
         amount: "",
-        cardNumber: "",
+        cardNumber: cardNumberState,
         cardExpirationYear: expirationPeriod.firstState,
         cardExpirationMonth: expirationPeriod.secondState,
         cardPassword: cardPasswordMerge,
@@ -33,17 +33,18 @@ const PaymentProcessingPage = () => {
     useEffect(() => {
         setUserInformation({
             ...userInformation,
+            cardNumber: cardNumberState,
             cardExpirationYear: expirationPeriod.firstState,
             cardExpirationMonth: expirationPeriod.secondState,
             cardPassword: cardPasswordMerge,
         });
-    }, [expirationPeriod.firstState, expirationPeriod.secondState, cardPasswordMerge]);
+    }, [cardNumberState, expirationPeriod.firstState, expirationPeriod.secondState, cardPasswordMerge]);
 
     const cardNumberInputHandler = (e: any) => {
         setCardNumberState(e.target.value);
     };
 
-    console.log("cardNumberState", cardNumberState);
+    console.log("userInformation", userInformation);
 
     const phoneNumberInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
@@ -77,7 +78,12 @@ const PaymentProcessingPage = () => {
                 </TotalAmountDiv>
             </TotalAmount>
             <InputDiv>
-                <Input title="카드번호" value={cardNumberState} onChange={e => setCardNumberState(e.target.value)} />
+                <Input
+                    title="카드번호"
+                    type="number"
+                    value={cardNumberState}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => setCardNumberState(e.target.value)}
+                />
                 <ExpirationPeriodInput title="유효기간(월/년)" />
                 <PasswordInput title="비밀번호 앞 두자리" />
                 <Input title="생년월일 6자리" />
