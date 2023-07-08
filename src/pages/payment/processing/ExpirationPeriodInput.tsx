@@ -8,12 +8,12 @@ const ExpirationPeriodInput = ({ title }: any) => {
 
     const expirationPeriodFirstInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
-        setExpirationPeriod((prev: any) => ({ ...prev, firstState: value }));
+        setExpirationPeriod((prev: any) => ({ ...prev, firstState: value.slice(0, 2) }));
     };
 
     const expirationPeriodSecondInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = e.currentTarget;
-        setExpirationPeriod((prev: any) => ({ ...prev, secondState: value }));
+        setExpirationPeriod((prev: any) => ({ ...prev, secondState: value.slice(0, 2) }));
     };
 
     return (
