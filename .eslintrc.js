@@ -77,7 +77,7 @@ module.exports = {
         "import/newline-after-import": "warn",
         "import/no-unresolved": "off",
         "import/order": [
-            "error",
+            "warn",
             {
                 groups: ["builtin", "external", "index", "internal", ["parent", "sibling"], "unknown", "type"],
                 pathGroups: [

@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
-const Input = ({ title }: any) => {
+const Input = (props: any) => {
+    const { title, onChange, type } = props;
     return (
         <InputContainer>
             <Label>{title}</Label>
-            <InputDiv />
+            <InputDiv onChange={onChange} type={type} />
         </InputContainer>
     );
 };
@@ -14,9 +15,9 @@ const InputContainer = styled.div`
     flex-direction: column;
 `;
 const Label = styled.div``;
-const InputDiv = styled.input`
-    width: 300px;
-    height: 20px;
+const InputDiv = styled.input<any>`
+    width: 600px;
+    height: 50px;
     border: 1px solid black;
 `;
 

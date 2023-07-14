@@ -1,3 +1,17 @@
-const payment = () => {};
+import { atom } from "recoil";
 
-export default payment;
+export const expirationPeriodState = atom({
+    key: "expirationPeriodState",
+    default: {
+        firstState: "",
+        secondState: "",
+    },
+});
+
+export const cardPasswordState = atom({
+    key: "cardPasswordState",
+    default: {
+        firstState: "",
+        secondState: "",
+    },
+});

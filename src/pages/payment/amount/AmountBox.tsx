@@ -9,13 +9,14 @@ const AmountBox = () => {
         <AmountBoxDiv>
             {RP.map(item => (
                 <RPdiv>{item}</RPdiv>
-            ))}
-            ;
+            ))};
         </AmountBoxDiv>
     );
 };
 const AmountBoxDiv = styled.div`
     display: flex;
+    justify-content: space-between;
+    width: 980px;
 `;
 
 const RPdiv = styled.div`
@@ -26,6 +27,7 @@ const RPdiv = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: ${({ theme }) => theme.fontSize.large};
 `;
 
 export default AmountBox;
