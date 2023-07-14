@@ -14,6 +14,10 @@ import Layout from "@components/global/Layout";
 
 import { expirationPeriodState, cardPasswordState } from "@recoil/payment";
 
+import ExpirationPeriodInput from "./ExpirationPeriodInput";
+import Input from "./Input";
+import PasswordInput from "./PasswordInput";
+
 const PaymentProcessingPage = () => {
     const [expirationPeriod, setExpirationPeriod] = useRecoilState(expirationPeriodState);
     const [cardPassword, setCardPassword] = useRecoilState(cardPasswordState);
