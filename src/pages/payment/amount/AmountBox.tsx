@@ -9,7 +9,8 @@ const AmountBox = () => {
         <AmountBoxDiv>
             {RP.map(item => (
                 <RPdiv>{item}</RPdiv>
-            ))};
+            ))}
+            ;
         </AmountBoxDiv>
     );
 };

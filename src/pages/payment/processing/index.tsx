@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-import axios from "axios";
 import { useRecoilState } from "recoil";
 import styled from "styled-components";
 
@@ -13,10 +12,6 @@ import CountButton from "../amount/CountButton";
 import Layout from "@components/global/Layout";
 
 import { expirationPeriodState, cardPasswordState } from "@recoil/payment";
-
-import ExpirationPeriodInput from "./ExpirationPeriodInput";
-import Input from "./Input";
-import PasswordInput from "./PasswordInput";
 
 const PaymentProcessingPage = () => {
     const [expirationPeriod, setExpirationPeriod] = useRecoilState(expirationPeriodState);

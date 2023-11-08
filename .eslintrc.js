@@ -61,6 +61,7 @@ module.exports = {
                 extensions: [".js", ".jsx", ".ts", ".tsx"],
             },
         ],
+        "@typescript-eslint/no-unused-vars": "warn", // TODO: 배포 이후 삭제 필요
 
         // 임포트 규칙
         "import/no-extraneous-dependencies": "off",
