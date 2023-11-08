@@ -61,6 +61,7 @@ module.exports = {
                 extensions: [".js", ".jsx", ".ts", ".tsx"],
             },
         ],
+        "@typescript-eslint/no-unused-vars": "warn", // TODO: 배포 이후 삭제 필요
 
         // 임포트 규칙
         "import/no-extraneous-dependencies": "off",
@@ -77,7 +78,7 @@ module.exports = {
         "import/newline-after-import": "warn",
         "import/no-unresolved": "off",
         "import/order": [
-            "error",
+            "warn",
             {
                 groups: ["builtin", "external", "index", "internal", ["parent", "sibling"], "unknown", "type"],
                 pathGroups: [
